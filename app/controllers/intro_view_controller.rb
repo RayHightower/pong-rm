@@ -1,5 +1,7 @@
 class IntroViewController < UIViewController
 
+  attr_accessor :game_view_controller   # tell the app tha the game_view_controller exists!!!
+
   def init
     super
   end
@@ -31,5 +33,13 @@ class IntroViewController < UIViewController
     
   end
 
+  def start_game
+
+    @game_view_controller = GameViewController.alloc.initWithNibName(nil, bundle: nil)
+    @game_view_controller.view.alpha = 0.0
+
+    self.view.addSubview(@game_view_controller.view)
+    
+  end
 
 end

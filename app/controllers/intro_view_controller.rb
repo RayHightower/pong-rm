@@ -36,7 +36,7 @@ class IntroViewController < UIViewController
   def start_game
 
     @game_view_controller = GameViewController.alloc.initWithNibName(nil, bundle: nil)
-    @game_view_controller.view.alpha = 0.0
+    # @game_view_controller.view.alpha = 0.0
 
     self.view.addSubview(@game_view_controller.view)
     

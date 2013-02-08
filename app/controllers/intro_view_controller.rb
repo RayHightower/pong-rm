@@ -1,6 +1,6 @@
 class IntroViewController < UIViewController
 
-  attr_accessor :game_view_controller   # tell the app tha the game_view_controller exists!!!
+  # attr_accessor :game_view_controller   # tell the app tha the game_view_controller exists!!!
 
   def init
     super
@@ -36,9 +36,17 @@ class IntroViewController < UIViewController
   def start_game
 
     @game_view_controller = GameViewController.alloc.initWithNibName(nil, bundle: nil)
-    # @game_view_controller.view.alpha = 0.0
+    puts "initialized a @game_view_controller"
+
+    @game_view_controller.view.alpha = 0.0
 
     self.view.addSubview(@game_view_controller.view)
+
+    UIView.animateWithDuration(2,
+                               animations: lambda {
+                               @game_view_controller.view.alpha = 1.0},
+                               completion: lambda {|finished|})
+
     
   end
 

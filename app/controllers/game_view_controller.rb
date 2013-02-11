@@ -10,6 +10,7 @@ class GameViewController < UIViewController
     super
     
     puts "viewDidLoad in GameViewController instance"
+    puts "landscape orientation is fine"
 
     # self.makeKeyAndVisible
 

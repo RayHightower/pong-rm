@@ -10,7 +10,7 @@ class IntroViewController < UIViewController
 
     super
 
-    self.view.backgroundColor = UIColor.redColor
+    self.view.backgroundColor = UIColor.grayColor
 
     @label = UILabel.alloc.initWithFrame(CGRectZero)
     @label.text = "Get ready to play Pong!"
@@ -46,6 +46,7 @@ class IntroViewController < UIViewController
     @game_view_controller.view.backgroundColor = UIColor.blackColor
 
     self.view.addSubview(@game_view_controller.view)
+    @game_view_controller.view.makeKeyAndVisible
     puts "added a @game_view_controller as a subView"
 
     UIView.animateWithDuration(2,

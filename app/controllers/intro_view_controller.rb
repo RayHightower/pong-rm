@@ -10,7 +10,7 @@ class IntroViewController < UIViewController
 
     super
 
-    self.view.backgroundColor = UIColor.grayColor
+    self.view.backgroundColor = UIColor.whiteColor
 
     @label = UILabel.alloc.initWithFrame(CGRectZero)
     @label.text = "Get ready to play Pong!"
@@ -38,16 +38,17 @@ class IntroViewController < UIViewController
     # @game_view_controller = GameViewController.alloc.initWithNibName(nil, bundle: nil)
     @game_view_controller = GameViewController.new
     puts "initialized a @game_view_controller"
-    @game_view_controller.view.frame = [[0,0], [320,480]]
+    # @game_view_controller.view.frame = [[0,0], [320,480]]
+    # @game_view_controller.view.frame = [[0,0], [480,320]]
 
     @game_view_controller.view.alpha = 0.5
     # @game_view_controller.makeKeyAndVisible      # makeKeyAndVisible only applies to UIWindows
     @game_view_controller.view = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
-    @game_view_controller.view.backgroundColor = UIColor.blackColor
+    @game_view_controller.view.backgroundColor = UIColor.grayColor
 
     self.view.addSubview(@game_view_controller.view)
     @game_view_controller.view.makeKeyAndVisible
-    puts "added a @game_view_controller as a subView"
+    puts "added a @game_view_controller.view as a subView"
 
     UIView.animateWithDuration(2,
                                animations: lambda {

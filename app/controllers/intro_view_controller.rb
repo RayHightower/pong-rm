@@ -13,7 +13,7 @@ class IntroViewController < UIViewController
     self.view.backgroundColor = UIColor.whiteColor
 
     @label = UILabel.alloc.initWithFrame(CGRectZero)
-    @label.text = "Get ready to play Pong!"
+    @label.text = "Ready to play RubyMotion Pong!"
     @label.sizeToFit
     @label.center = [self.view.frame.size.height / 2, self.view.frame.size.width / 3]
     @label.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin)

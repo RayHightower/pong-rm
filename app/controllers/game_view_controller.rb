@@ -13,7 +13,6 @@ class GameViewController < UIViewController
     puts "landscape orientation is fine"
 
     # self.makeKeyAndVisible
-
     # Setup the ball
     @points = [[0, 0], [50, 0], [0, 50], [50, 50]]
     @current_index = 0

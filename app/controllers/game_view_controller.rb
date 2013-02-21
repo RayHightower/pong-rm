@@ -22,12 +22,27 @@ class GameViewController < UIViewController
     # self.view.addSubview(@right_paddle_view)
   end
 
-end
+  def move_ball
+  
+    if ((ball_view.frame.origin.y + ball_view.frame.size.width > self.view.frame.size.height) || ball_view.frame.origin.y < 0)
+       direction_y *= -1
+    end
+  
+  end
+  
+  def create_ball
 
-def move_ball
+    
+  end
 
-  if ((ball_view.frame.origin.y + ball_view.frame.size.width > self.view.frame.size.height) || ball_view.frame.origin.y < 0)
-     direction_y *= -1
+  def create_left_paddle
+
+    
+  end
+
+  def create_right_paddle
+    
   end
 
 end
+

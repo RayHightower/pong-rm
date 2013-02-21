@@ -37,7 +37,8 @@ class IntroViewController < UIViewController
   def start_game
     create_game_view_controller
 
-    UIView.animateWithDuration(2,
+    # What is this animation doing?
+    UIView.animateWithDuration(2.0,
                                animations: lambda {
                                @game_view_controller.view.alpha = 1.0},
                                completion: lambda {|finished|})
@@ -45,7 +46,6 @@ class IntroViewController < UIViewController
 
   def create_game_view_controller
     @game_view_controller = GameViewController.new
-
     @game_view_controller.view.alpha = 0.5
     @game_view_controller.view = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
     @game_view_controller.view.backgroundColor = UIColor.greenColor

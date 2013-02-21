@@ -44,14 +44,9 @@ class IntroViewController < UIViewController
   end
 
   def create_game_view_controller
-    # @game_view_controller = GameViewController.alloc.initWithNibName(nil, bundle: nil)
     @game_view_controller = GameViewController.new
-    puts "initialized a @game_view_controller"
-    # @game_view_controller.view.frame = [[0,0], [320,480]]
-    # @game_view_controller.view.frame = [[0,0], [480,320]]
 
     @game_view_controller.view.alpha = 0.5
-    # @game_view_controller.makeKeyAndVisible      # makeKeyAndVisible only applies to UIWindows
     @game_view_controller.view = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
     @game_view_controller.view.backgroundColor = UIColor.greenColor
 

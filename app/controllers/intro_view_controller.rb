@@ -7,9 +7,7 @@ class IntroViewController < UIViewController
   end
 
   def viewDidLoad
-
     super
-
     self.view.backgroundColor = UIColor.whiteColor
     create_start_label
     create_start_button

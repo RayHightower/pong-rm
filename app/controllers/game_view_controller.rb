@@ -2,15 +2,11 @@ class GameViewController < UIViewController
 
   def init
     super
-
   end
 
   def viewDidLoad
-
     super
     
-    puts "viewDidLoad in GameViewController instance"
-
     # self.makeKeyAndVisible
     # Setup the ball
     @points = [[0, 0], [50, 0], [0, 50], [50, 50]]

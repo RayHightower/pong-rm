@@ -11,14 +11,20 @@ class IntroViewController < UIViewController
     super
 
     self.view.backgroundColor = UIColor.whiteColor
+    create_start_label
+    create_start_button
+  end
 
+  def create_start_label
     @label = UILabel.alloc.initWithFrame(CGRectZero)
     @label.text = "Ready to play RubyMotion Pong!"
     @label.sizeToFit
     @label.center = [self.view.frame.size.height / 2, self.view.frame.size.width / 3]
     @label.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin)
     self.view.addSubview(@label)    
-    
+  end
+
+  def create_start_button
     button_width = 100
     @startbutton = UIButton.buttonWithType(UIButtonTypeRoundedRect)
     @startbutton.setTitle("Start Game", forState:UIControlStateNormal)
@@ -30,11 +36,9 @@ class IntroViewController < UIViewController
     @startbutton.addTarget(self, action:"start_game", forControlEvents:UIControlEventTouchUpInside)
 
     self.view.addSubview(@startbutton)
-    
   end
 
   def start_game
-
     # @game_view_controller = GameViewController.alloc.initWithNibName(nil, bundle: nil)
     @game_view_controller = GameViewController.new
     puts "initialized a @game_view_controller"
@@ -44,7 +48,7 @@ class IntroViewController < UIViewController
     @game_view_controller.view.alpha = 0.5
     # @game_view_controller.makeKeyAndVisible      # makeKeyAndVisible only applies to UIWindows
     @game_view_controller.view = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
-    @game_view_controller.view.backgroundColor = UIColor.grayColor
+    @game_view_controller.view.backgroundColor = UIColor.greenColor
 
     self.view.addSubview(@game_view_controller.view)
     @game_view_controller.view.makeKeyAndVisible

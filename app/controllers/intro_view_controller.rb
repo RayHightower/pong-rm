@@ -47,7 +47,7 @@ class IntroViewController < UIViewController
   def create_game_view_controller
     @game_view_controller = GameViewController.new
     self.view.addSubview(@game_view_controller.view)
-    puts "added a @game_view_controller.view as a subView"
+    # puts "added a @game_view_controller.view as a subView"
   end
 
 end

@@ -11,20 +11,34 @@ class GameViewController < UIViewController
 
   def viewDidLoad
     super
-    
-    # self.makeKeyAndVisible
-    # Setup the ball
+    create_ball
+    create_left_paddle
+    create_right_paddle
+
+  end
+
+  def create_ball
     @points = [[0, 0], [50, 0], [0, 50], [50, 50]]
     @current_index = 0
     
     @ball_view = UIView.alloc.initWithFrame [@points[@current_index], [100, 100]]
     @ball_view.backgroundColor = UIColor.whiteColor
     self.view.addSubview(@ball_view)
-      
-    # Setup the right paddle
+  end
+
+  def create_left_paddle
+
+    puts "create_left_paddle stub"
+    
+  end
+
+  def create_right_paddle
     # @right_paddle_view = PaddleView.alloc.initWithFrame[@points[@current_index], [100, 100]]
     # @right_paddle_view.backgroundColor = UIColor.whiteColor
     # self.view.addSubview(@right_paddle_view)
+    
+    puts "create_right_paddle stub"
+
   end
 
   def move_ball
@@ -33,20 +47,6 @@ class GameViewController < UIViewController
        direction_y *= -1
     end
   
-  end
-  
-  def create_ball
-
-    
-  end
-
-  def create_left_paddle
-
-    
-  end
-
-  def create_right_paddle
-    
   end
 
 end

@@ -1,7 +1,5 @@
 class IntroViewController < UIViewController
 
-  # attr_accessor :game_view_controller   # tell the app that the game_view_controller exists!!!
-
   def init
     super
   end

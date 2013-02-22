@@ -2,6 +2,11 @@ class GameViewController < UIViewController
 
   def init
     super
+    self.view.alpha = 0.5
+    self.view = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
+    self.view.backgroundColor = UIColor.greenColor
+    self.view.makeKeyAndVisible
+    self
   end
 
   def viewDidLoad

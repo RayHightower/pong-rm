@@ -46,12 +46,7 @@ class IntroViewController < UIViewController
 
   def create_game_view_controller
     @game_view_controller = GameViewController.new
-    @game_view_controller.view.alpha = 0.5
-    @game_view_controller.view = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
-    @game_view_controller.view.backgroundColor = UIColor.greenColor
-
     self.view.addSubview(@game_view_controller.view)
-    @game_view_controller.view.makeKeyAndVisible
     puts "added a @game_view_controller.view as a subView"
   end
 

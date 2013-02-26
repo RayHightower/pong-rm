@@ -78,14 +78,14 @@ class GameViewController < UIViewController
     # If ball exits right, +1 for the left player
     if (@ball_view.center.x + @ball_view.frame.size.width > self.view.frame.size.width)
         increment_left_score
-        @direction_x = -1
+        @direction_x *= -1
         self.reset_ball
     end
     
     # If ball exits left, +1 for the right player
     if (@ball_view.center.x < 0)
         increment_right_score
-        @direction_x = -1
+        @direction_x *= -1
         self.reset_ball
     end
     
@@ -95,7 +95,7 @@ class GameViewController < UIViewController
     end
 
     # If the ball didn't hit anything, keep on moving...
-    @ball_view.center = [@ball_view.center.x + @direction_x, @ball_view.center.y + @direction_y]
+    @ball_view.center = [@ball_view.center.x + 5*@direction_x, @ball_view.center.y + 5*@direction_y]
 
   end
 

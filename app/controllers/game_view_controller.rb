@@ -2,14 +2,12 @@ class GameViewController < UIViewController
 
   def init
     super
-    @ball_size = [20, 20] 
+    @ball_size = [20, 20]
     @ball_location = [240, 160]
-    puts "ball_size = #{@ball_size}   @ball_location = #{@ball_location}"
     @paddle_size = [20, 100]
     @left_paddle_position = [20, 50]
     @right_paddle_position = [440, 50]
 
-    # self.view.alpha = 0.5
     self.view = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
     self.view.backgroundColor = UIColor.blackColor
     self.view.makeKeyAndVisible
@@ -39,11 +37,9 @@ class GameViewController < UIViewController
   end
 
   def move_ball
-  
     if ((ball_view.frame.origin.y + ball_view.frame.size.width > self.view.frame.size.height) || ball_view.frame.origin.y < 0)
        direction_y *= -1
     end
-  
   end
 
 end

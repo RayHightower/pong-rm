@@ -48,6 +48,7 @@ class GameViewController < UIViewController
     @left_score.textColor = UIColor.whiteColor
     @left_score.backgroundColor = UIColor.clearColor
     @left_score.center = [120, 30]
+    @left_score_num = 0
     self.view.addSubview(@left_score)
 
     @right_score = UILabel.alloc.initWithFrame(CGRectZero)
@@ -57,26 +58,34 @@ class GameViewController < UIViewController
     @right_score.textColor = UIColor.whiteColor
     @right_score.backgroundColor = UIColor.clearColor
     @right_score.center = [360, 30]
+    @right_score_num = 0
     self.view.addSubview(@right_score)
   end
 
-  def move_ball
-    # If the ball hits the top wall, bounce downward.
-    # if ((@ball_view.frame.origin.y + @ball_view.frame.size.width > self.view.frame.size.height) || @ball_view.frame.origin.y < 0)
-    #    @direction_y *= -1
-    # end
+  def increment_right_score
+    @right_score_num += 1
+    @right_score.text = @right_score_num.to_s
+    @right_score.sizeToFit
+  end
 
+  def increment_left_score
+    @left_score_num += 1
+    @left_score.text = @right_score_num.to_s
+    @left_score.sizeToFit
+  end
+
+  def move_ball
     # If ball exits right, +1 for the left player
-    if (@ball_view.frame.origin.x + @ball_view.frame.size.height > self.view.frame.size.width)
-        # @left_score += 1
-        # leftScoreDisplay.text = [[NSString alloc] initWithFormat:@"%d",leftScore];
+    if (@ball_view.center.x + @ball_view.frame.size.width > self.view.frame.size.width)
+        increment_left_score
+        @direction_x = -1
         self.reset_ball
     end
     
     # If ball exits left, +1 for the right player
-    if (@ball_view.frame.origin.x + @ball_view.frame.size.height > self.view.frame.size.width)
-        # @left_score += 1
-        # leftScoreDisplay.text = [[NSString alloc] initWithFormat:@"%d",leftScore];
+    if (@ball_view.center.x < 0)
+        increment_right_score
+        @direction_x = -1
         self.reset_ball
     end
     
@@ -91,7 +100,12 @@ class GameViewController < UIViewController
   end
 
   def reset_ball
-    puts "stub for reset_ball"
+    # Put the ball back in the center.
+    @ball_view.center = [240, 200]
+    
+    # Start the game timer again.
+    @game_timer = 0
+    start_game_timer
   end
     
   def start_game_timer

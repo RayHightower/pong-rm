@@ -9,11 +9,13 @@ class GameViewController < UIViewController
     self.view = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
     self.view.backgroundColor = UIColor.grayColor
     self.view.makeKeyAndVisible
+    start_game_timer
     self
   end
 
   def viewDidLoad
     super
+    puts "viewDidLoad"
   end
 
   def create_ball
@@ -60,26 +62,26 @@ class GameViewController < UIViewController
 
   def move_ball
     # If the ball hits the top wall, bounce downward.
-    if ((@ball_view.frame.origin.y + @ball_view.frame.size.width > self.view.frame.size.height) || @ball_view.frame.origin.y < 0)
-       @direction_y *= -1
-    end
+    # if ((@ball_view.frame.origin.y + @ball_view.frame.size.width > self.view.frame.size.height) || @ball_view.frame.origin.y < 0)
+    #    @direction_y *= -1
+    # end
 
     # If ball exits right, +1 for the left player
-    if (@ballView.frame.origin.x + @ballView.frame.size.height > self.view.frame.size.width)
+    if (@ball_view.frame.origin.x + @ball_view.frame.size.height > self.view.frame.size.width)
         # @left_score += 1
         # leftScoreDisplay.text = [[NSString alloc] initWithFormat:@"%d",leftScore];
         self.reset_ball
     end
     
     # If ball exits left, +1 for the right player
-    if (@ballView.frame.origin.x + @ballView.frame.size.height > self.view.frame.size.width)
+    if (@ball_view.frame.origin.x + @ball_view.frame.size.height > self.view.frame.size.width)
         # @left_score += 1
         # leftScoreDisplay.text = [[NSString alloc] initWithFormat:@"%d",leftScore];
         self.reset_ball
     end
     
-    # If the ball hits the bottom wall, bounce upward.
-    if ((@ball_view.frame.origin.y + @ball_view.frame.size.width > self.view.frame.size.height) || @ball_view.frame.origin.y < 0)
+    # If the ball hits the top or bottom wall, bounce y in the opposite direction, while x-direction remains unchanged.
+    if ((@ball_view.center.y + @ball_view.frame.size.height > self.view.frame.size.height) || @ball_view.frame.origin.y < 0)
        @direction_y *= -1
     end
 
@@ -92,13 +94,14 @@ class GameViewController < UIViewController
     puts "stub for reset_ball"
   end
     
-  end
-  def start_game_timer(sender)
+  def start_game_timer
     # Execute the move_ball method every 0.1 seconds.
     if @game_timer == nil
       @game_timer = 0
     end
     
+    puts "starting the @game_timer"
+
     @game_timer = NSTimer.scheduledTimerWithTimeInterval(0.1,
                                                          target: self,
                                                          selector: "move_ball",

@@ -17,7 +17,7 @@ class IntroViewController < UIViewController
     @label.sizeToFit
     @label.center = [self.view.frame.size.height / 2, self.view.frame.size.width / 3]
     @label.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin)
-    self.view.addSubview(@label)    
+    self.view.addSubview(@label)
   end
 
   def create_start_button
@@ -39,6 +39,7 @@ class IntroViewController < UIViewController
     @game_view_controller.create_ball
     @game_view_controller.create_left_paddle
     @game_view_controller.create_right_paddle
+    @game_view_controller.create_score_labels
     # What is this animation doing?
     # UIView.animateWithDuration(2.0,
     #                            animations: lambda {
@@ -50,7 +51,6 @@ class IntroViewController < UIViewController
     @game_view_controller = GameViewController.new
     @game_view_controller.view.alpha = 1.0
     self.view.addSubview(@game_view_controller.view)
-    puts "added a @game_view_controller.view as a subView of the @intro_view_controller"
   end
 
 end

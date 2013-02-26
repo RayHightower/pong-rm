@@ -6,7 +6,7 @@ class GameViewController < UIViewController
     @ball_location = [240, 160]
     @paddle_size = [20, 100]
     @left_paddle_position = [20, 50]
-    @right_paddle_position = [440, 50]
+    @right_paddle_position = [440, 150]
 
     self.view = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
     self.view.backgroundColor = UIColor.blackColor
@@ -34,6 +34,23 @@ class GameViewController < UIViewController
     @right_paddle_view = PaddleView.alloc.initWithFrame [@right_paddle_position, @paddle_size]
     @right_paddle_view.backgroundColor = UIColor.whiteColor
     self.view.addSubview(@right_paddle_view)
+  end
+
+  def create_score_labels
+    @left_score = UILabel.alloc.initWithFrame(CGRectZero)
+    @left_score.text = "0"
+    @left_score.sizeToFit
+    @left_score.center = [self.view.frame.size.height / 2, self.view.frame.size.width / 3]
+    @left_score.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin)
+    self.view.addSubview(@left_score)
+    
+    @right_score = UILabel.alloc.initWithFrame(CGRectZero)
+    @right_score.text = "0"
+    @right_score.sizeToFit
+    @right_score.center = [self.view.frame.size.height / 2, self.view.frame.size.width / 3]
+    @right_score.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin)
+    self.view.addSubview(@right_score)
+    
   end
 
   def move_ball

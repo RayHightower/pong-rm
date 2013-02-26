@@ -35,17 +35,22 @@ class IntroViewController < UIViewController
   def start_game
     create_game_view_controller
 
+    self.view.addSubview(@game_view_controller.view)
+    @game_view_controller.create_ball
+    @game_view_controller.create_left_paddle
+    @game_view_controller.create_right_paddle
     # What is this animation doing?
-    UIView.animateWithDuration(2.0,
-                               animations: lambda {
-                               @game_view_controller.view.alpha = 1.0},
-                               completion: lambda {|finished|})
+    # UIView.animateWithDuration(2.0,
+    #                            animations: lambda {
+    #                            @game_view_controller.view.alpha = 1.0},
+    #                            completion: lambda {|finished|})
   end
 
   def create_game_view_controller
     @game_view_controller = GameViewController.new
+    @game_view_controller.view.alpha = 1.0
     self.view.addSubview(@game_view_controller.view)
-    # puts "added a @game_view_controller.view as a subView"
+    puts "added a @game_view_controller.view as a subView of the @intro_view_controller"
   end
 
 end

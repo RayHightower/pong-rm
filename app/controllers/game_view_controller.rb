@@ -65,14 +65,14 @@ class GameViewController < UIViewController
     end
 
     # If ball exits right, +1 for the left player
-    if (@ballView.frame.origin.x + @ballView.frame.size.height > self.view.frame.size.width){
+    if (@ballView.frame.origin.x + @ballView.frame.size.height > self.view.frame.size.width)
         # @left_score += 1
         # leftScoreDisplay.text = [[NSString alloc] initWithFormat:@"%d",leftScore];
         self.reset_ball
     end
     
     # If ball exits left, +1 for the right player
-    if (@ballView.frame.origin.x + @ballView.frame.size.height > self.view.frame.size.width){
+    if (@ballView.frame.origin.x + @ballView.frame.size.height > self.view.frame.size.width)
         # @left_score += 1
         # leftScoreDisplay.text = [[NSString alloc] initWithFormat:@"%d",leftScore];
         self.reset_ball
@@ -83,10 +83,16 @@ class GameViewController < UIViewController
        @direction_y *= -1
     end
 
+    # If the ball didn't hit anything, keep on moving...
     @ball_view.center = [@ball_view.center.x + @direction_x, @ball_view.center.y + @direction_y]
 
   end
 
+  def reset_ball
+    puts "stub for reset_ball"
+  end
+    
+  end
   def start_game_timer(sender)
     # Execute the move_ball method every 0.1 seconds.
     if @game_timer == nil

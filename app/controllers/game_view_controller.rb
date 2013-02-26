@@ -3,13 +3,11 @@ class GameViewController < UIViewController
   def init
     super
     @ball_size = [20, 20]
-    @ball_start = [240, 160]
     @paddle_size = [20, 100]
-    @left_paddle_start = [20, 50]
-    @right_paddle_start = [440, 150]
+    @object_start = [20, 50]
 
     self.view = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
-    self.view.backgroundColor = UIColor.blackColor
+    self.view.backgroundColor = UIColor.grayColor
     self.view.makeKeyAndVisible
     self
   end
@@ -19,21 +17,22 @@ class GameViewController < UIViewController
   end
 
   def create_ball
-    @ball_view = UIView.alloc.initWithFrame [@ball_start, @ball_size]
+    @ball_view = UIView.alloc.initWithFrame [@object_start, @ball_size]
     @ball_view.backgroundColor = UIColor.whiteColor
     @ball_view.center = [240, 200]
+    @direction_x = @direction_y = 1
     self.view.addSubview(@ball_view)
   end
 
   def create_left_paddle
-    @left_paddle_view = PaddleView.alloc.initWithFrame [@left_paddle_start, @paddle_size]
+    @left_paddle_view = PaddleView.alloc.initWithFrame [@object_start, @paddle_size]
     @left_paddle_view.backgroundColor = UIColor.whiteColor
     @left_paddle_view.center = [20, 200]
     self.view.addSubview(@left_paddle_view)
   end
 
   def create_right_paddle
-    @right_paddle_view = PaddleView.alloc.initWithFrame [@right_paddle_start, @paddle_size]
+    @right_paddle_view = PaddleView.alloc.initWithFrame [@object_start, @paddle_size]
     @right_paddle_view.backgroundColor = UIColor.whiteColor
     @right_paddle_view.center = [460, 160]
     self.view.addSubview(@right_paddle_view)
@@ -60,10 +59,47 @@ class GameViewController < UIViewController
   end
 
   def move_ball
-    if ((ball_view.frame.origin.y + ball_view.frame.size.width > self.view.frame.size.height) || ball_view.frame.origin.y < 0)
-       direction_y *= -1
+    # If the ball hits the top wall, bounce downward.
+    if ((@ball_view.frame.origin.y + @ball_view.frame.size.width > self.view.frame.size.height) || @ball_view.frame.origin.y < 0)
+       @direction_y *= -1
     end
+
+    # If ball exits right, +1 for the left player
+    if (@ballView.frame.origin.x + @ballView.frame.size.height > self.view.frame.size.width){
+        # @left_score += 1
+        # leftScoreDisplay.text = [[NSString alloc] initWithFormat:@"%d",leftScore];
+        self.reset_ball
+    end
+    
+    # If ball exits left, +1 for the right player
+    if (@ballView.frame.origin.x + @ballView.frame.size.height > self.view.frame.size.width){
+        # @left_score += 1
+        # leftScoreDisplay.text = [[NSString alloc] initWithFormat:@"%d",leftScore];
+        self.reset_ball
+    end
+    
+    # If the ball hits the bottom wall, bounce upward.
+    if ((@ball_view.frame.origin.y + @ball_view.frame.size.width > self.view.frame.size.height) || @ball_view.frame.origin.y < 0)
+       @direction_y *= -1
+    end
+
+    @ball_view.center = [@ball_view.center.x + @direction_x, @ball_view.center.y + @direction_y]
+
   end
+
+  def start_game_timer(sender)
+    # Execute the move_ball method every 0.1 seconds.
+    if @game_timer == nil
+      @game_timer = 0
+    end
+    
+    @game_timer = NSTimer.scheduledTimerWithTimeInterval(0.1,
+                                                         target: self,
+                                                         selector: "move_ball",
+                                                         userInfo: nil,
+                                                         repeats: true)
+  end
+
 
 end
 

@@ -24,7 +24,6 @@ class IntroViewController < UIViewController
     button_width = 100
     @startbutton = UIButton.buttonWithType(UIButtonTypeRoundedRect)
     @startbutton.setTitle("Start Game", forState:UIControlStateNormal)
-    # @startbutton.setTitleColor(color, forState:UIControlStateNormal)
     @startbutton.sizeToFit
     @startbutton.frame = [[self.view.frame.size.height / 2 - button_width / 2, self.view.frame.size.width / 2], [button_width, 30]]
     @startbutton.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin
@@ -40,11 +39,12 @@ class IntroViewController < UIViewController
     @game_view_controller.create_left_paddle
     @game_view_controller.create_right_paddle
     @game_view_controller.create_score_labels
-    # What is this animation doing?
-    # UIView.animateWithDuration(2.0,
-    #                            animations: lambda {
-    #                            @game_view_controller.view.alpha = 1.0},
-    #                            completion: lambda {|finished|})
+    @game_view_controller.view.alpha = 0
+    # Animate the fade from the Start Screen to the Gaming Screen.
+    UIView.animateWithDuration(2.0,
+                               animations: lambda {
+                               @game_view_controller.view.alpha = 1.0},
+                               completion: lambda {|finished|})
   end
 
   def create_game_view_controller

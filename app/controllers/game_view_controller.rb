@@ -28,12 +28,15 @@ class GameViewController < UIViewController
   def create_left_paddle
     @left_paddle_view = PaddleView.alloc.initWithFrame [@object_start, @paddle_size]
     @left_paddle_view.center = [20, 200]
+    @left_paddle_view.backgroundColor = UIColor.whiteColor
     self.view.addSubview(@left_paddle_view)
+    @left_paddle_view.move_paddle_down
   end
 
   def create_right_paddle
     @right_paddle_view = PaddleView.alloc.initWithFrame [@object_start, @paddle_size]
     @right_paddle_view.center = [460, 160]
+    @right_paddle_view.backgroundColor = UIColor.whiteColor
     self.view.addSubview(@right_paddle_view)
   end
 
@@ -73,7 +76,7 @@ class GameViewController < UIViewController
 
   def move_ball
     # If ball exits right, +1 for the left player
-    if (@ball_view.center.x + @ball_view.frame.size.width > self.view.frame.size.width)
+    if (@ball_view.center.x  > self.view.frame.size.width)
         increment_left_score
         @direction_x *= -1
         self.reset_ball

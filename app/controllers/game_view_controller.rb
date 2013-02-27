@@ -7,16 +7,10 @@ class GameViewController < UIViewController
     @paddle_size = [20, 100]
 
     self.view = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
-#    self.view.backgroundColor = UIColor.greenColor
-    red = 40.0/255
-    green = 99.0/255
-    blue = 34.0/255
-    alpha = 1
-    self.view.backgroundColor = UIColor.colorWithRed(red,
-                                                   green: green,
-                                                    blue: blue,
-                                                   alpha: alpha)
-#    self.view.backgroundColor = BubbleWrap.rgb_color(40,99,34)
+    self.view.backgroundColor = UIColor.colorWithRed(40.0/255,
+                                                   green: 99.0/255,
+                                                    blue: 34.0/255,
+                                                   alpha: 1)
     self.view.makeKeyAndVisible
     start_game_timer
     self
@@ -34,19 +28,18 @@ class GameViewController < UIViewController
     self.view.addSubview(@ball_view)
   end
 
+  def create_right_paddle
+    @right_paddle_view = PaddleView.alloc.initWithFrame [[420,50], @paddle_size]
+    @right_paddle_view.center = [460, 160] # if x>160+/-, the  right paddle  will not respond to touch events.
+    @right_paddle_view.backgroundColor = UIColor.whiteColor
+    self.view.addSubview(@right_paddle_view)
+  end
+
   def create_left_paddle
     @left_paddle_view = PaddleView.alloc.initWithFrame [@object_start, @paddle_size]
     @left_paddle_view.center = [20, 150]
     @left_paddle_view.backgroundColor = UIColor.whiteColor
     self.view.addSubview(@left_paddle_view)
-    # @left_paddle_view.move_paddle_down
-  end
-
-  def create_right_paddle
-    @right_paddle_view = PaddleView.alloc.initWithFrame [@object_start, @paddle_size]
-    @right_paddle_view.center = [460, 160]
-    @right_paddle_view.backgroundColor = UIColor.whiteColor
-    self.view.addSubview(@right_paddle_view)
   end
 
   def create_score_labels

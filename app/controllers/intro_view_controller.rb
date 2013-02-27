@@ -35,8 +35,8 @@ class IntroViewController < UIViewController
 
     self.view.addSubview(@game_view_controller.view)
     @game_view_controller.create_ball
-    @game_view_controller.create_left_paddle
     @game_view_controller.create_right_paddle
+    @game_view_controller.create_left_paddle
     @game_view_controller.create_score_labels
     @game_view_controller.view.alpha = 0
     # Animate the fade from the Start Screen to the Gaming Screen.

@@ -95,7 +95,7 @@ class GameViewController < UIViewController
     end
 
     # If the ball didn't hit anything, keep on moving...
-    @ball_view.center = [@ball_view.center.x + 5*@direction_x, @ball_view.center.y + 5*@direction_y]
+    @ball_view.center = [@ball_view.center.x + @direction_x, @ball_view.center.y + @direction_y]
 
   end
 
@@ -104,25 +104,22 @@ class GameViewController < UIViewController
     @ball_view.center = [240, 200]
     
     # Start the game timer again.
-    @game_timer = 0
+    # @game_timer = 0
     start_game_timer
   end
     
   def start_game_timer
-    # Execute the move_ball method every 0.1 seconds.
-    if @game_timer == nil
-      @game_timer = 0
-    end
-    
-    puts "starting the @game_timer"
+    # Execute the move_ball method every 0.01 seconds.
+    #if @game_timer == nil
+    #  @game_timer = 0
+    #end
 
-    @game_timer = NSTimer.scheduledTimerWithTimeInterval(0.1,
+    @game_timer = NSTimer.scheduledTimerWithTimeInterval(0.01,
                                                          target: self,
                                                          selector: "move_ball",
                                                          userInfo: nil,
                                                          repeats: true)
   end
-
 
 end
 

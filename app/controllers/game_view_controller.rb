@@ -3,7 +3,6 @@ class GameViewController < UIViewController
   def init
     super
     @ball_size = [20, 20]
-    @paddle_size = [20, 100]
     @object_start = [20, 50]
 
     self.view = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
@@ -15,7 +14,6 @@ class GameViewController < UIViewController
 
   def viewDidLoad
     super
-    puts "viewDidLoad"
   end
 
   def create_ball
@@ -27,15 +25,13 @@ class GameViewController < UIViewController
   end
 
   def create_left_paddle
-    @left_paddle_view = PaddleView.alloc.initWithFrame [@object_start, @paddle_size]
-    @left_paddle_view.backgroundColor = UIColor.whiteColor
+    @left_paddle_view = PaddleView.alloc.init
     @left_paddle_view.center = [20, 200]
     self.view.addSubview(@left_paddle_view)
   end
 
   def create_right_paddle
     @right_paddle_view = PaddleView.alloc.initWithFrame [@object_start, @paddle_size]
-    @right_paddle_view.backgroundColor = UIColor.whiteColor
     @right_paddle_view.center = [460, 160]
     self.view.addSubview(@right_paddle_view)
   end

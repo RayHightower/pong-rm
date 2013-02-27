@@ -27,10 +27,10 @@ class GameViewController < UIViewController
 
   def create_left_paddle
     @left_paddle_view = PaddleView.alloc.initWithFrame [@object_start, @paddle_size]
-    @left_paddle_view.center = [20, 200]
+    @left_paddle_view.center = [20, 150]
     @left_paddle_view.backgroundColor = UIColor.whiteColor
     self.view.addSubview(@left_paddle_view)
-    @left_paddle_view.move_paddle_down
+    # @left_paddle_view.move_paddle_down
   end
 
   def create_right_paddle
@@ -97,21 +97,40 @@ class GameViewController < UIViewController
     # If the ball didn't hit anything, keep on moving...
     @ball_view.center = [@ball_view.center.x + @direction_x, @ball_view.center.y + @direction_y]
 
+    # If ball collides with a paddle, change direction.
+    check_paddle_collision
+
+  end
+
+  def check_paddle_collision
+    #if ball collides with the left paddle, change direction
+    if (CGRectIntersectsRect(@ball_view.frame, @left_paddle_view.frame))
+      @direction_x *= -1
+      @direction_y *= -1
+    end
+
+    #if ball collides with the right paddle, change direction
+    if (CGRectIntersectsRect(@ball_view.frame, @right_paddle_view.frame))
+      @direction_x *= -1
+      @direction_y *= -1
+    end
   end
 
   def reset_ball
     @ball_view.center = [240, 200]
+    @direction_x *= -1
     
-    @game_timer.invalidate  # Will this solve the acceleration problem? If so, why?
+    @game_timer.invalidate  # @game_timer.invalidate solved the acceleration problem. Why?
     start_game_timer
   end
     
   def start_game_timer
     @game_timer = NSTimer.scheduledTimerWithTimeInterval(0.01,
-                                                         target: self,
-                                                         selector: "move_ball",
-                                                         userInfo: nil,
-                                                         repeats: true)
+                                                    target: self,
+                                                  selector: "move_ball",
+                                                  userInfo: nil,
+                                                   repeats: true)
   end
+
 end
 

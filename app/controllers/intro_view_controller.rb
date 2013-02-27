@@ -13,9 +13,9 @@ class IntroViewController < UIViewController
 
   def create_start_label
     @label = UILabel.alloc.initWithFrame(CGRectZero)
-    @label.text = "Ready to play RubyMotion Pong!"
+    @label.text = "Get ready to play RubyMotion Pong!"
     @label.sizeToFit
-    @label.center = [self.view.frame.size.height / 2, self.view.frame.size.width / 3]
+    @label.center = [self.view.frame.size.height / 2, self.view.frame.size.width / 2 - 30]
     @label.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin)
     self.view.addSubview(@label)
   end
@@ -25,8 +25,7 @@ class IntroViewController < UIViewController
     @startbutton = UIButton.buttonWithType(UIButtonTypeRoundedRect)
     @startbutton.setTitle("Start Game", forState:UIControlStateNormal)
     @startbutton.sizeToFit
-    @startbutton.frame = [[self.view.frame.size.height / 2 - button_width / 2, self.view.frame.size.width / 2], [button_width, 30]]
-    @startbutton.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin
+    @startbutton.frame = [[190,140], [button_width, 30]]
     @startbutton.addTarget(self, action:"start_game", forControlEvents:UIControlEventTouchUpInside)
     self.view.addSubview(@startbutton)
   end

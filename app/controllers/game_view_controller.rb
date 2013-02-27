@@ -70,7 +70,7 @@ class GameViewController < UIViewController
 
   def increment_left_score
     @left_score_num += 1
-    @left_score.text = @right_score_num.to_s
+    @left_score.text = @left_score_num.to_s
     @left_score.sizeToFit
   end
 
@@ -100,20 +100,13 @@ class GameViewController < UIViewController
   end
 
   def reset_ball
-    # Put the ball back in the center.
     @ball_view.center = [240, 200]
     
-    # Start the game timer again.
-    # @game_timer = 0
+    @game_timer.invalidate  # Will this solve the acceleration problem? If so, why?
     start_game_timer
   end
     
   def start_game_timer
-    # Execute the move_ball method every 0.01 seconds.
-    #if @game_timer == nil
-    #  @game_timer = 0
-    #end
-
     @game_timer = NSTimer.scheduledTimerWithTimeInterval(0.01,
                                                          target: self,
                                                          selector: "move_ball",

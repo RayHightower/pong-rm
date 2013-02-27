@@ -113,6 +113,5 @@ class GameViewController < UIViewController
                                                          userInfo: nil,
                                                          repeats: true)
   end
-
 end
 

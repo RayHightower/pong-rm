@@ -7,7 +7,16 @@ class GameViewController < UIViewController
     @paddle_size = [20, 100]
 
     self.view = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
-    self.view.backgroundColor = UIColor.grayColor
+#    self.view.backgroundColor = UIColor.greenColor
+    red = 40.0/255
+    green = 99.0/255
+    blue = 34.0/255
+    alpha = 1
+    self.view.backgroundColor = UIColor.colorWithRed(red,
+                                                   green: green,
+                                                    blue: blue,
+                                                   alpha: alpha)
+#    self.view.backgroundColor = BubbleWrap.rgb_color(40,99,34)
     self.view.makeKeyAndVisible
     start_game_timer
     self
@@ -106,13 +115,11 @@ class GameViewController < UIViewController
     #if ball collides with the left paddle, change direction
     if (CGRectIntersectsRect(@ball_view.frame, @left_paddle_view.frame))
       @direction_x *= -1
-      @direction_y *= -1
     end
 
     #if ball collides with the right paddle, change direction
     if (CGRectIntersectsRect(@ball_view.frame, @right_paddle_view.frame))
       @direction_x *= -1
-      @direction_y *= -1
     end
   end
 

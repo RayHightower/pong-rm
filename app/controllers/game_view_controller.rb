@@ -50,12 +50,14 @@ class GameViewController < UIViewController
   end
 
   def create_score_labels
-    @left_score = UILabel.alloc.initWithFrame(CGRectZero)
-    @left_score.text = "0"
-    @left_score.font = UIFont.boldSystemFontOfSize(35)
-    @left_score.sizeToFit
-    @left_score.textColor = UIColor.whiteColor
-    @left_score.backgroundColor = UIColor.clearColor
+    @left_score = ScoreLabel.new
+
+#     @left_score = UILabel.alloc.initWithFrame(CGRectZero)
+#     @left_score.text = "0"
+#     @left_score.font = UIFont.boldSystemFontOfSize(35)
+#     @left_score.sizeToFit
+#     @left_score.textColor = UIColor.whiteColor
+#     @left_score.backgroundColor = UIColor.clearColor
     @left_score.center = [120, 30]
     @left_score_num = 0
     self.view.addSubview(@left_score)

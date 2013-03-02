@@ -38,7 +38,7 @@ class GameViewController < UIViewController
   def create_right_paddle
     @right_paddle_view = PaddleView.alloc.initWithFrame [[420,50], @paddle_size]
     @right_paddle_view.center = [self.view.size.height-20, self.view.size.width/2] # if x>160+/-, the  right paddle  will not respond to touch events.
-    # @right_paddle_view.backgroundColor = UIColor.whiteColor
+    @right_paddle_view.backgroundColor = UIColor.whiteColor
     self.view.addSubview(@right_paddle_view)
   end
 

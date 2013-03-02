@@ -7,5 +7,6 @@ Motion::Project::App.setup do |app|
   app.name = 'Pong-RM'
 
   app.interface_orientations = [:landscape_left]
+  app.files_dependencies 'app/controllers/game_view_controller.rb' => 'app/views/score_label.rb'
 
 end

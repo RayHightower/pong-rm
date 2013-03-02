@@ -1,9 +1,9 @@
 class PaddleView < UIView
 
   def init
+    # Looking for other things I can initialize here to DRY up the code.
     super
     self
-    
   end
 
   def touchesMoved(touches, withEvent:event)

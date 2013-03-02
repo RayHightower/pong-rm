@@ -13,6 +13,11 @@ class GameViewController < UIViewController
                                                    green: 99.0/255,
                                                     blue: 34.0/255,
                                                    alpha: 1)
+    self.create_ball
+    self.create_right_paddle
+    self.create_left_paddle
+    self.create_score_labels
+    self.view.alpha = 0
     self.view.makeKeyAndVisible
     start_game_timer
     self

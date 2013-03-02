@@ -1,5 +1,11 @@
 class PaddleView < UIView
 
+  def init
+    super
+    self
+    
+  end
+
   def touchesMoved(touches, withEvent:event)
     touch = touches.anyObject
     point = touch.locationInView(self.superview)

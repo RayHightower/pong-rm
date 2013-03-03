@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 $:.unshift("/Library/RubyMotion/lib")
 require 'motion/project'
+require 'rubygems'
 require 'motion-testflight'
 
 Motion::Project::App.setup do |app|

@@ -6,7 +6,7 @@ class GameViewController < UIViewController
     @object_start = [20, 50]
     @paddle_size = [20, 100]
 
-    self.view = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
+    self.view = UIView.alloc.initWithFrame(UIScreen.mainScreen.bounds)
 
     # RGB 40, 99, 34 = UIColor.tennisCourtGreenColor :-)
     self.view.backgroundColor = UIColor.colorWithRed(40.0/255,
@@ -18,7 +18,6 @@ class GameViewController < UIViewController
     self.create_left_paddle
     self.create_score_labels
     self.view.alpha = 0
-    self.view.makeKeyAndVisible
     start_game_timer
     self
   end

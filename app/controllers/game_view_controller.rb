@@ -9,7 +9,7 @@ class GameViewController < UIViewController
     self.view = UIView.alloc.initWithFrame(UIScreen.mainScreen.bounds)
 
     # RGB 40, 99, 34 = UIColor.tennisCourtGreenColor :-)
-    # RGB 0, 0, 205 = A nice shade of blue
+    # RGB 0, 0, 205 = A shade of blue
     self.view.backgroundColor = UIColor.colorWithRed(0.0/255,
                                                    green: 0.0/255,
                                                     blue: 205.0/255,

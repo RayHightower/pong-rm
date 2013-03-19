@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 $:.unshift("/Library/RubyMotion/lib")
 require 'motion/project'
+require 'motion-testflight'
 
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
@@ -12,5 +13,9 @@ Motion::Project::App.setup do |app|
 
   app.provisioning_profile = '/Users/rth/Library/MobileDevice/Provisioning Profiles/[string-of-numbers].mobileprovision'
   app.codesign_certificate = 'iPhone Developer: Raymond T Hightower (Z9NP4QZ4AE)'
+
+  app.testflight.sdk = 'vendor/TestFlight'
+  app.testflight.api_token = '889104c1388c3ab736e90fc8cd0bd7d0_OTU5Nw'
+  app.testflight.team_token = '863ddec814e46da2aa09f58d9486faeb_MTAzNDM1MjAxMi0wNi0yNCAyMjoyOTowNi45NzczMDM'
 
 end

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 $:.unshift("/Library/RubyMotion/lib")
 require 'motion/project'
+require 'rubygems'
 require 'motion-testflight'
 
 Motion::Project::App.setup do |app|
@@ -16,6 +17,9 @@ Motion::Project::App.setup do |app|
 
   app.testflight.sdk = 'vendor/TestFlight'
   app.testflight.api_token = '889104c1388c3ab736e90fc8cd0bd7d0_OTU5Nw'
-  app.testflight.team_token = '863ddec814e46da2aa09f58d9486faeb_MTAzNDM1MjAxMi0wNi0yNCAyMjoyOTowNi45NzczMDM'
+  # team_token has been deprecated in favor of app_token
+  # app.testflight.team_token = '863ddec814e46da2aa09f58d9486faeb_MTAzNDM1MjAxMi0wNi0yNCAyMjoyOTowNi45NzczMDM'
+  app.testflight.app_token = 'fb4233fc-5f4c-4dec-a6ea-62348c5ad632'
+  app.testflight.notify = true
 
 end

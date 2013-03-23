@@ -51,12 +51,12 @@ class GameViewController < UIViewController
 
   def create_score_labels
     @left_score = ScoreLabel.new
-    @left_score.center = [120, 30]
+    @left_score.center = [self.view.size.width/4, 30]
     @left_score_num = 0
     self.view.addSubview(@left_score)
 
     @right_score = ScoreLabel.new
-    @right_score.center = [360, 30]
+    @right_score.center = [self.view.size.width*0.95, 30]
     @right_score_num = 0
     self.view.addSubview(@right_score)
   end

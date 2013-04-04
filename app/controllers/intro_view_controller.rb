@@ -26,7 +26,6 @@ class IntroViewController < UIViewController
     @startbutton.setTitle("Start Game", forState:UIControlStateNormal)
     @startbutton.sizeToFit
     @startbutton.center = [self.view.frame.size.height / 2, self.view.frame.size.width / 2 - 30]
-    # @startbutton.frame = [[190,140], [button_width, 30]]
     @startbutton.addTarget(self, action:"start_game", forControlEvents:UIControlEventTouchUpInside)
     self.view.addSubview(@startbutton)
   end
@@ -35,6 +34,7 @@ class IntroViewController < UIViewController
     create_game_view_controller
 
     self.view.addSubview(@game_view_controller.view)
+
     # Animate the fade from the Start Screen to the Gaming Screen.
     UIView.animateWithDuration(2.0,
                                animations: lambda {

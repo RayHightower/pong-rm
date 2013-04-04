@@ -122,7 +122,7 @@ class GameViewController < UIViewController
   end
     
   def start_game_timer
-    @game_timer = NSTimer.scheduledTimerWithTimeInterval(0.01,
+    @game_timer = NSTimer.scheduledTimerWithTimeInterval(0.005,
                                                     target: self,
                                                   selector: "move_ball",
                                                   userInfo: nil,

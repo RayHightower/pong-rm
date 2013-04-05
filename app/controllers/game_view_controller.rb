@@ -94,7 +94,7 @@ class GameViewController < UIViewController
     end
 
     # If the ball didn't hit anything, keep on moving...
-    @ball_view.center = [@ball_view.center.x + @direction_x, @ball_view.center.y + @direction_y]
+    @ball_view.center = [@ball_view.center.x + 2*@direction_x, @ball_view.center.y + 2*@direction_y]
 
     # If ball collides with a paddle, change direction.
     check_paddle_collision
@@ -122,7 +122,7 @@ class GameViewController < UIViewController
   end
     
   def start_game_timer
-    @game_timer = NSTimer.scheduledTimerWithTimeInterval(0.01,
+    @game_timer = NSTimer.scheduledTimerWithTimeInterval(0.005,
                                                     target: self,
                                                   selector: "move_ball",
                                                   userInfo: nil,

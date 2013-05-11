@@ -1,5 +1,7 @@
 class AppDelegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
+    SparkInspector.enableObservation
+    
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
     @window.makeKeyAndVisible
 

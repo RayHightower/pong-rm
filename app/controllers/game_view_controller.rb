@@ -14,6 +14,7 @@ class GameViewController < UIViewController
                                                    green: 0.0/255,
                                                     blue: 205.0/255,
                                                    alpha: 1)
+    self.orientation = landscapeImagePhoneInsets
     self.create_ball
     self.create_right_paddle
     self.create_left_paddle

@@ -6,7 +6,8 @@ class GameViewController < UIViewController
     @object_start = [20, 50]
     @paddle_size = [20, 100]
 
-    self.view = UIView.alloc.initWithFrame(UIScreen.mainScreen.bounds)
+    # self.view = UIView.alloc.initWithFrame(UIScreen.mainScreen.bounds)
+    self.view = UIView.alloc.initWithFrame([[0,0], [960,480])
 
     # RGB 40, 99, 34 = UIColor.tennisCourtGreenColor :-)
     # RGB 0, 0, 205 = A shade of blue
@@ -14,7 +15,6 @@ class GameViewController < UIViewController
                                                    green: 0.0/255,
                                                     blue: 205.0/255,
                                                    alpha: 1)
-    self.orientation = landscapeImagePhoneInsets
     self.create_ball
     self.create_right_paddle
     self.create_left_paddle

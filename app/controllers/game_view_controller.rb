@@ -2,7 +2,7 @@ class GameViewController < UIViewController
 
   def init
     super
-    @ball_size = [20, 20]
+    @ball_size = [50, 50]
     @object_start = [20, 50]
     @paddle_size = [20, 100]
 

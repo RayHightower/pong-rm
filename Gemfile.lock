@@ -4,6 +4,7 @@ GEM
     activesupport (3.2.11)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    awesome_print_motion (0.1.0)
     i18n (0.6.1)
     ib (0.2.1)
       thor (~> 0.15.4)
@@ -20,6 +21,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print_motion
   ib
   motion-testflight
   rake

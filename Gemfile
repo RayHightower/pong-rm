@@ -5,4 +5,3 @@ gem 'ib'
 gem 'rake'
 gem 'motion-testflight'
 gem 'sugarcube'
-

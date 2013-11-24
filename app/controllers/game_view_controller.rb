@@ -108,14 +108,14 @@ class GameViewController < UIViewController
     if (CGRectIntersectsRect(@ball_view.frame, @left_paddle_view.frame))
       @direction_x *= -1
       # and jump the ball out of the frame to stop it from bouncing within the paddle
-      @ball_view.center.x += 1
+      @ball_view.center.x += 10
     end
 
     #if ball collides with the right paddle, change direction
     if (CGRectIntersectsRect(@ball_view.frame, @right_paddle_view.frame))
       @direction_x *= -1
       # and jump the ball out of the frame to stop it from bouncing within the paddle
-      @ball_view.center.x -= 1
+      @ball_view.center.x -= 5
     end
   end
 

@@ -34,6 +34,7 @@ class IntroViewController < UIViewController
     create_game_view_controller
 
     self.view.addSubview(@game_view_controller.view)
+
     # Animate the fade from the Start Screen to the Gaming Screen.
     UIView.animateWithDuration(2.0,
                                animations: lambda {

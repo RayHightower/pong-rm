@@ -6,8 +6,8 @@ class GameViewController < UIViewController
     @object_start = [20, 50]
     @paddle_size = [20, 100]
 
-    self.view = UIView.alloc.initWithFrame(UIScreen.mainScreen.bounds)
-    # self.view = UIView.alloc.initWithFrame([[0,0], [480,320]])
+    # self.view = UIView.alloc.initWithFrame(UIScreen.mainScreen.bounds)
+    self.view = UIView.alloc.initWithFrame([[0,0], [480,320]])
 
     # RGB 40, 99, 34 = UIColor.tennisCourtGreenColor :-)
     # RGB 0, 0, 205 = A shade of blue

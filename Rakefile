@@ -29,4 +29,3 @@ Motion::Project::App.setup do |app|
   app.testflight.notify = true
 
 end
-# require 'motion/project/template/ios'

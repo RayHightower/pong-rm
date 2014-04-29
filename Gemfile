@@ -6,3 +6,5 @@ gem 'rake'
 gem 'motion-testflight'
 gem 'sugarcube'
 gem 'awesome_print_motion'
+gem 'motion-layout'
+

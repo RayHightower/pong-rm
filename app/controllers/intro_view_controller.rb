@@ -44,7 +44,7 @@ class IntroViewController < UIViewController
 
   def create_game_view_controller
     @game_view_controller = GameViewController.new
-    @game_view_controller.view.alpha = 1.0
+    @game_view_controller.view.alpha = 0
     self.view.addSubview(@game_view_controller.view)
   end
 

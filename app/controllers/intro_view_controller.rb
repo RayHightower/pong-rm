@@ -13,7 +13,7 @@ class IntroViewController < UIViewController
 
   def create_start_label
     @label = UILabel.alloc.initWithFrame(CGRectZero)
-    @label.text = "Get ready to play RubyMotion Pong!"
+    @label.text = "Get ready to play ORIGINAL RubyMotion Pong!"
     @label.sizeToFit
     @label.center = [self.view.frame.size.height / 2, self.view.frame.size.width / 2 - 30]
     @label.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin)

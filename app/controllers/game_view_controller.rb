@@ -12,9 +12,6 @@ class GameViewController < UIViewController
     # swap the height and width numbers to operate in landscape mode
     self.view = UIView.alloc.initWithFrame([[0,0], [@height, @width]])
     
-    # self.view = UIView.alloc.initWithFrame(UIScreen.mainScreen.bounds)
-    # self.view = UIView.alloc.initWithFrame([[0,0], [480,320]])
-
     # RGB 40, 99, 34 = UIColor.tennisCourtGreenColor :-)
     # RGB 0, 0, 205 = A shade of blue
     self.view.backgroundColor = UIColor.colorWithRed(0.0/255,

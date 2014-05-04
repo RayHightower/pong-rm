@@ -23,9 +23,4 @@ Motion::Project::App.setup do |app|
 
   app.device_family = [:iphone]
 
-  # app.provisioning_profile = '/Users/rth/Library/MobileDevice/Provisioning Profiles/36E2A416-EB55-471C-8A5B-771EA6E525BA.mobileprovision'
-  app.provisioning_profile = '/Users/rth/Library/MobileDevice/Provisioning Profiles/672976D7-44DE-46B1-B7A0-FD58D93787A2.mobileprovision'
-  app.codesign_certificate = 'iPhone Developer: Raymond T Hightower (Z9NP4QZ4AE)'
-  # code sign certificate. NOT co-design certificate :-)
-
 end

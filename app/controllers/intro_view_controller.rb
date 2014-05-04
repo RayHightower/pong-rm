@@ -6,6 +6,10 @@ class IntroViewController < UIViewController
 
   def viewDidLoad
     super
+    @height = UIScreen.mainScreen.bounds.size.height
+    @width = UIScreen.mainScreen.bounds.size.width
+    self.view = UIView.alloc.initWithFrame([[0,0], [@height, @width]])
+
     self.view.backgroundColor = UIColor.whiteColor
     create_start_label
     create_start_button

@@ -6,11 +6,11 @@ class GameViewController < UIViewController
     @object_start = [20, 50]
     @paddle_size = [20, 100]
 
-    @height = UIScreen.mainScreen.bounds.size.height
-    @width = UIScreen.mainScreen.bounds.size.width
-    
-    # swap the height and width numbers to operate in landscape mode
-    self.view = UIView.alloc.initWithFrame([[0,0], [@height, @width]])
+    # @height = UIScreen.mainScreen.bounds.size.height
+    # @width = UIScreen.mainScreen.bounds.size.width
+    # 
+    # # swap the height and width numbers to operate in landscape mode
+    # self.view = UIView.alloc.initWithFrame([[0,0], [@height, @width]])
     
     # RGB 40, 99, 34 = UIColor.tennisCourtGreenColor :-)
     # RGB 0, 0, 205 = A shade of blue

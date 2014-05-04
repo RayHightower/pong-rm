@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
 $:.unshift("/Library/RubyMotion/lib")
 require 'motion/project/template/ios'
+<<<<<<< HEAD
+require 'rubygems'
+require 'motion-testflight'
+require 'sugarcube'
+require 'ap'
+require 'motion-layout'
+=======
 
 # A much better way to manage gems... the DRY way!
 begin
@@ -8,6 +15,7 @@ begin
   Bundler.require
 rescue LoadError
 end
+>>>>>>> screenstuff
 
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.

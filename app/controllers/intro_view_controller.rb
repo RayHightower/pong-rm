@@ -6,9 +6,12 @@ class IntroViewController < UIViewController
 
   def viewDidLoad
     super
-    @height = UIScreen.mainScreen.bounds.size.height
-    @width = UIScreen.mainScreen.bounds.size.width
+    @height = 568 # UIScreen.mainScreen.bounds.size.height
+    @width = 320 # UIScreen.mainScreen.bounds.size.width
     self.view = UIView.alloc.initWithFrame([[0,0], [@height, @width]])
+
+    puts "height = #{@height}"
+    puts "\nwidth = #{@width}"
 
     self.view.backgroundColor = UIColor.whiteColor
     create_start_label
@@ -19,7 +22,7 @@ class IntroViewController < UIViewController
     @label = UILabel.alloc.initWithFrame(CGRectZero)
     @label.text = "Get ready to play ORIGINAL RubyMotion Pong!"
     @label.sizeToFit
-    @label.center = [self.view.frame.size.height / 2, self.view.frame.size.width / 2 - 30]
+    @label.center = [self.view.frame.size.width / 2, self.view.frame.size.height / 2 - 30]
     @label.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin)
     self.view.addSubview(@label)
   end

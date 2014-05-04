@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 $:.unshift("/Library/RubyMotion/lib")
 require 'motion/project/template/ios'
-require 'rubygems'
-require 'motion-testflight'
-require 'sugarcube'
-require 'ap'
+# require 'rubygems'
+# require 'motion-testflight'
+# require 'sugarcube'
+# require 'ap'
 
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
